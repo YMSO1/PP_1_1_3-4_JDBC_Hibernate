@@ -14,12 +14,11 @@ public class UserDaoJDBCImpl implements UserDao {
 
     public void createUsersTable() {
         Connection connection = Util.getConnection();
-        String createTable = "CREATE TABLE IF NOT EXISTS `mydbtest`.`user` (" +
-                "`id` INT NOT NULL AUTO_INCREMENT," +
-                "`name` VARCHAR(45) NULL," +
-                "`lastname` VARCHAR(45) NULL," +
-                "`age` TINYINT NULL," +
-                "PRIMARY KEY (`id`))";
+        String createTable = "CREATE TABLE IF NOT EXISTS user (" +
+                "id BIGINT NOT NULL AUTO_INCREMENT," +
+                "name VARCHAR(45) NULL," +
+                "lastname VARCHAR(45) NULL," +
+                "age TINYINT NULL,PRIMARY KEY (id))";
 
         try (Statement statement = connection.createStatement()) {
             statement.executeUpdate(createTable);
